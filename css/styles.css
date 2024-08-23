@@ -1,0 +1,200 @@
+.section1 .form {
+    display: grid;
+    width: 70rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 10ch;
+    padding: 4rem;
+    background-color: var(--medium-dark);
+    border: none;
+    border-radius: 0.3rem;
+}
+
+.left-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5ch;
+
+}
+
+.right-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1ch;
+    justify-content: space-between;
+}
+
+
+
+.section1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2ch;
+}
+
+.error {
+    color: red;
+}
+
+
+
+h1, a, label{
+    opacity: var(-low);
+}
+
+.left-form h1 {
+    letter-spacing: 1px;
+    background-color: var(--primary-color);
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.form input, .form select {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+
+    background-color: var(--light-dark);
+    color: var(--font-color);
+}
+.form textarea {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--light-dark);
+    color: var(--font-color);
+    height: 10rem;
+}
+
+.form button {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2ch;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1ch;
+}
+
+input#book_rating {
+    flex: 1;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1ch;
+    margin-bottom: 1rem;
+}
+
+.checkbox-container input[type="checkbox"] {
+    opacity: 0; /* Hide the default checkbox */
+    position: absolute; /* Remove from the layout flow */
+    width: 0; /* Prevent the checkbox from affecting layout */
+    height: 0;
+}
+
+.checkbox-container label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer; /* Show that it's clickable */
+    position: relative;
+    padding-left: 2rem; /* Space for custom checkbox */
+    margin-right: 1rem; /* Space between checkboxes */
+}
+
+.checkbox-container label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 1.5rem; /* Size of the custom checkbox */
+    height: 1.5rem;
+    border: 2px solid #333; /* Border color */
+    border-radius: 0.25rem; /* Rounded corners */
+    background-color: #fff; /* Background color */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.checkbox-container input[type="checkbox"]:checked + label::before {
+    background-color: var(--primary-color); /* Background color when checked */
+    border-color: var(--primary-color); /* Border color when checked */
+}
+
+.checkbox-container input[type="checkbox"]:checked + label::after {
+    content: '✓'; /* Checkmark */
+    position: absolute;
+    left: 0.25rem; /* Position checkmark */
+    top: -0.3rem;
+    font-size: 1.2rem; /* Adjust size of checkmark */
+    color: #fff; /* Checkmark color */
+}
+
+.radio-container input[type="radio"] {
+    opacity: 0; /* Hide the default radio button */
+    position: absolute; /* Remove from the layout flow */
+    width: 0; /* Prevent affecting layout */
+    height: 0;
+}
+
+.radio-container label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer; /* Show that it's clickable */
+    position: relative;
+    padding-left: 2rem; /* Space for custom radio button */
+    margin-right: 1rem; /* Space between radio buttons */
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 1ch;
+    margin-bottom: 1rem;
+}
+
+.radio-container label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 1.5rem; /* Size of the custom radio button */
+    height: 1.5rem;
+    border: 2px solid #333; /* Border color */
+    border-radius: 50%; /* Circle shape */
+    background-color: #fff; /* Background color */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.radio-container input[type="radio"]:checked + label::before {
+    background-color: var(--primary-color); /* Background color when selected */
+    border-color: var(--primary-color); /* Border color when selected */
+}
+
+.radio-container label::after {
+    content: '';
+    position: absolute;
+    left: 0.4rem; /* Position of the inner dot */
+    top: 0.2rem;
+    width: 0.75rem; /* Size of the inner dot */
+    height: 0.75rem;
+    border-radius: 50%; /* Circle shape */
+    background-color: transparent; /* Default color */
+    transition: background-color 0.2s ease;
+}
+
+.radio-container input[type="radio"]:checked + label::after {
+    background-color: #fff; /* Color of the inner dot when selected */
+}

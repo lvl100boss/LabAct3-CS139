@@ -1,0 +1,39 @@
+@import url('https://fonts.cdnfonts.com/css/coolwonder');
+:root {
+    --primary-color: #2d50ff;
+    --dark:#0B0B0C;
+    --medium-dark:#1D1D1F;
+    --light-dark:#2D2D2F;
+    --high: 87%;
+    --medium: 60%;
+    --low: 38%;
+    --font-color: white;
+
+}
+
+* {
+    margin: 0;
+    padding: 0; 
+    font-size: 1rem;
+    font-family: 'Coolwonder', sans-serif;
+                                                
+}
+
+*,*:after,*:before {
+    box-sizing: border-box;
+}
+
+a, a:visited, a:active, a:hover, a:focus, a:link, a:visited {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--font-color);
+}
+

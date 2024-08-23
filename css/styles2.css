@@ -1,0 +1,31 @@
+th, td {
+    padding: 1rem 1rem;
+    gap: 2ch;
+}
+
+section.section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 2ch;
+    padding: 0 15rem 5rem 15rem;
+}
+
+th {
+    font-size: larger;
+}
+
+.description {
+    text-wrap: balance;
+}
+.section1 .table {
+    background-color: var(--medium-dark);
+    border: none;
+    border-radius: 0.3rem;
+    border-collapse: collapse;
+}
+
+.header-row {
+    background-color: var(--primary-color);
+}

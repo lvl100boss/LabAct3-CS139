@@ -1,0 +1,54 @@
+.header1 {
+    margin-bottom: 2rem;
+    padding: 2rem 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--font-color);
+    margin-left: 1rem;
+    pointer-events: none;
+    text-align: lefts;
+
+    margin-left: 0;
+}
+
+.records {
+    color: var(--primary-color);
+}
+
+ul {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.log-in {
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+
+    transition: all ease-in-out 0.2s;
+    
+}
+
+.header1 .log-in:hover {
+    background-color: white;
+}
+.header1 .log-in:hover a {
+    color: var(--primary-color);
+}
+
+.view a {
+    transition: all ease-in-out 0.2s;
+}
+
+.view:hover a {
+    color: var(--primary-color);
+}
