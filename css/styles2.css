@@ -24,6 +24,8 @@ th {
     border: none;
     border-radius: 0.3rem;
     border-collapse: collapse;
+    overflow-x: auto;
+
 }
 
 .header-row {

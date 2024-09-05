@@ -29,6 +29,7 @@
             <tr class="header-row">
                 <th>No.</th>
                 <th>Book Title</th>
+                <th>Barcode</th>
                 <th>Author's Name</th>
                 <th>Genre</th>
                 <th>Publication Date</th>
@@ -38,6 +39,7 @@
                 <th>Age Group</th>
                 <th>Book Rating</th>
                 <th>Description</th>
+                <td>Changes</td>
             </tr>
             
             <?php 
@@ -52,6 +54,7 @@
                 <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $row['book_title']; ?></td>
+                    <td><?php echo $row['barcode']; ?></td>
                     <td><?php echo $row['authors_name']; ?></td>
                     <td><?php echo $row['genre']; ?></td>
                     <td><?php echo $row['publication_date']; ?></td>
@@ -61,6 +64,7 @@
                     <td><?php echo $row['age_group']; ?></td>
                     <td><?php echo $row['book_rating']; ?></td>
                     <td class="description"><?php echo $row['description']; ?></td>
+                    <td><a href="editbook.php?book_selected=<?= $row['id']?>">Edit</a></td>
             <?php    
                 $i++;
                 }

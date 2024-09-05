@@ -1,16 +1,15 @@
 <?php 
 
-class Database {
-    private $host = "localhost";
-    private $db_name = "library_db";
-    private $username = "root";
-    private $password = "";
-
-    protected $connection;
+class database{
+    private $host = 'localhost';
+    private $username = 'root';
+    private $password = '';
+    private $dbname = 'library_db';
+    
+    protected $connection_var;
 
     function connection() {
-        $this->connection =  new PDO("mysql:host=$this->host;dbname=$this->db_name", $this->username, $this->password);
-
-        return $this->connection;
+        $this->connection_var = new PDO("mysql:host=$this->host; dbname=$this->dbname", $this->username, $this->password);
+        return $this->connection_var;
     }
-}    
+}   

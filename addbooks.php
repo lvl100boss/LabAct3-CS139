@@ -3,12 +3,14 @@
 require_once 'include/functions.php';
 require_once 'include/books.class.php';
 
-$book_title = $authors_name = $genre = $publisher = $publication_date = $edition = $number_of_copies = $format = $age_group = $book_rating = $description = '';
+$book_title = $barcode = $authors_name = $genre = $publisher = $publication_date = $edition = $number_of_copies = $format = $book_rating = $description = '';
+$age_group = [];
 
-$book_titleErr = $authors_nameErr = $genreErr = $publisherErr = $publication_dateErr = $editionErr = $number_of_copiesErr = $formatErr = $age_groupErr = $book_ratingErr = $descriptionErr = '';
+$book_titleErr = $barcodeErr = $authors_nameErr = $genreErr = $publisherErr = $publication_dateErr = $editionErr = $number_of_copiesErr = $formatErr = $age_groupErr = $book_ratingErr = $descriptionErr = '';
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     $book_title = clean_input($_POST['book_title']);
+    $barcode = clean_input($_POST['barcode']);
     $authors_name = clean_input($_POST['authors_name']);
     $genre = clean_input($_POST['genre']);
     $publisher = clean_input($_POST['publisher']);
@@ -16,18 +18,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $edition = clean_input($_POST['edition']);
     $number_of_copies = clean_input($_POST['number_of_copies']);
     $format = isset($_POST['format']) ? clean_input($_POST['format']) : '';
-    $age_group = isset($_POST['age_group']) && is_array($_POST['age_group']) ? implode(',', $_POST['age_group']) : ''; // Handle checkboxes
+   
     $book_rating = clean_input($_POST['book_rating']);
     $description = clean_input($_POST['description']);
-
     $age_group_array = isset($_POST['age_group']) && is_array($_POST['age_group']) ? $_POST['age_group'] : [];
     $age_group = implode(',', $age_group_array);
 
-    // Validate fields
+    
+
     if(empty($book_title)){
         $book_titleErr = "This Field is required";
     }
+    $booksObj = new Books();
+    $barcodes = $booksObj->checkBarcodeExists($barcode);
 
+    if (empty($barcode)) {
+        $barcodeErr = "This field is required";
+    } else if ($barcodes) {
+        $barcodeErr = "Barcode $barcode already exists";
+    }
+    
     if(empty($authors_name)){
         $authors_nameErr = "This Field is required";
     }
@@ -69,10 +79,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 
     // Check if there are no errors
-    if(empty($book_titleErr) && empty($authors_nameErr) && empty($genreErr) && empty($publisherErr) && empty($publication_dateErr) && empty($editionErr) && empty($number_of_copiesErr) && empty($formatErr) && empty($age_groupErr) && empty($book_ratingErr)) {
+    if(empty($book_titleErr)&& empty($barcodeErr) && empty($authors_nameErr) && empty($genreErr) && empty($publisherErr) && empty($publication_dateErr) && empty($editionErr) && empty($number_of_copiesErr) && empty($formatErr) && empty($age_groupErr) && empty($book_ratingErr)) {
         
-        $booksObj = new Books();
         $booksObj->book_title = $book_title;
+        $booksObj->barcode = $barcode;  
         $booksObj->authors_name = $authors_name;
         $booksObj->genre = $genre;
         $booksObj->publisher = $publisher;
@@ -83,6 +93,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $booksObj->age_group = $age_group;
         $booksObj->book_rating = $book_rating;
         $booksObj->description = $description;
+
+        
 
         if($booksObj->add()){
             header('Location: addbooks.php?success=true');  
@@ -134,6 +146,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         </span>
                     </div>
                     <input type="text" name="book_title" id="book_title" placeholder="Enter Book Title" value="<?= $book_title ?>">
+
+                    <div>
+                        <label for="book_title">Bar Code</label> 
+                        <span class="error"> 
+                            * <?php echo $barcodeErr; ?>
+                        </span>
+                    </div>
+                    <input type="text" name="barcode" id="barcode" placeholder="Enter Bar Code" value="<?= $barcode ?>">
                     
                     <div>
                         <label for="authors_name">Author's Name</label>
