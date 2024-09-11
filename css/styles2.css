@@ -31,3 +31,85 @@ th {
 .header-row {
     background-color: var(--primary-color);
 }
+
+.extra-section {
+    padding: 2rem  15rem;
+}
+.filters-container {
+    display: flex;
+    /* flex-direction: row; */
+    
+    justify-content: space-between;
+}
+
+.left-filter-container {
+    display: flex;
+    gap: 2ch;
+}
+
+.left-filter-container div {
+    display: flex;
+    gap: 2ch;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    gap: 2ch;
+    align-items: center;
+}
+
+.search-container .search {
+    width: 20rem;
+}
+
+.middle {
+    display: flex;
+    align-items: center;
+    gap: 2ch;
+    background-color: var(--light-dark);
+    padding-left: 1rem;
+    border-radius: 100rem;
+}
+
+
+.left-filter-container label,
+.middle label {
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+.middle .checkbox-container {
+    margin-bottom: 0;
+}
+
+.middle .checkbox-container div label{
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.option-div .edit-button {
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.option-div .edit-button:hover {
+    color: #2945d2;
+}
+
+.option-div .delete-button {
+    color: #ff2d2d;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.option-div .delete-button:hover {
+    color: #e02d2d;
+}
+
+.option-div {
+    display: flex;
+    gap: 2ch;
+    align-items: center;
+}

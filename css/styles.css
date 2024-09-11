@@ -58,6 +58,17 @@ h1, a, label{
     background-color: var(--light-dark);
     color: var(--font-color);
 }
+
+.filters-container input, .filters-container  select {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+
+    background-color: var(--light-dark);
+    color: var(--font-color);
+}
+
+
 .form textarea {
     padding: 1rem;
     border: none;
@@ -198,3 +209,4 @@ input#book_rating {
 .radio-container input[type="radio"]:checked + label::after {
     background-color: #fff; /* Color of the inner dot when selected */
 }
+

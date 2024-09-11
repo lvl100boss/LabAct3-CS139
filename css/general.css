@@ -37,3 +37,6 @@ body {
     color: var(--font-color);
 }
 
+th {
+    text-align: left !important;
+}
